@@ -57,6 +57,7 @@ public class BankRepository {
         }
         return "Feil";
     }
+    // henter konto med gitt personnummer
     public List<Konto> hentKonti(String personnummer) {
         try{
             String sql = "Select Distinct Kontonummer from Konto Where Personnummer = ?";

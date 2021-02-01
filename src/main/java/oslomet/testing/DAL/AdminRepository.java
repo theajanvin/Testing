@@ -107,11 +107,14 @@ public class AdminRepository {
 
     public String registrerKonto(Konto konto) {
         try{
+            // henter kunde med personnummer
             String sql = "Select count(*) from Kunde Where Personnummer = ?";
             int funnetPersonnummer  = db.queryForObject(sql,Integer.class,konto.getPersonnummer());
+            // sjekker om personnummer eksisterer i databasen, returnerer feil dersom den ikke gjør det
             if (funnetPersonnummer == 0){
                 return "Feil";
             }
+            // legger til en ny konto
             sql = "Insert into Konto (Personnummer, Kontonummer, Saldo, Type, Valuta) Values (?,?,?,?,?)";
             db.update(sql,konto.getPersonnummer(),konto.getKontonummer(),konto.getSaldo(),konto.getType(),
                     konto.getValuta());

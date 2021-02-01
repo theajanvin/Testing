@@ -55,6 +55,7 @@ public class Sikkerhet {
         }
     }
 
+    // sjekker om man er logget inn
     public String loggetInn() {
         if (session.getAttribute("Innlogget") != null){
             return (String) session.getAttribute("Innlogget");
