@@ -1,13 +1,18 @@
 package oslomet.testing.DAL;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.GetMapping;
 import oslomet.testing.Models.Konto;
 import oslomet.testing.Models.Kunde;
 import oslomet.testing.Models.Transaksjon;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 @Repository
